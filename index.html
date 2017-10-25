@@ -13,6 +13,37 @@
             background-repeat: no-repeat;
         }
 
+        @keyframes flickerAnimation {
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+        }
+        
+        @-o-keyframes flickerAnimation{
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+        }
+
+        @-moz-keyframes flickerAnimation{
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+        }
+
+        @-webkit-keyframes flickerAnimation{
+            0%   { opacity:1; }
+            50%  { opacity:0; }
+            100% { opacity:1; }
+        }
+        
+        .blood_splatter {
+            -webkit-animation: flickerAnimation .2s infinite;
+            -moz-animation: flickerAnimation .2s infinite;
+            -o-animation: flickerAnimation .2s infinite;
+            animation: flickerAnimation .2s infinite;
+        }
+
         html {
             background-image: url(/Users/francescasinocruz/Desktop/LFZ/guess/images/bg_wall.jpg);
             background-size: cover;
