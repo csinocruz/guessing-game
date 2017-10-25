@@ -38,10 +38,10 @@
         }
         
         .blood_splatter {
-            -webkit-animation: flickerAnimation .2s infinite;
-            -moz-animation: flickerAnimation .2s infinite;
-            -o-animation: flickerAnimation .2s infinite;
-            animation: flickerAnimation .2s infinite;
+            -webkit-animation: flickerAnimation .3s infinite;
+            -moz-animation: flickerAnimation .3s infinite;
+            -o-animation: flickerAnimation .3s infinite;
+            animation: flickerAnimation .3s infinite;
         }
 
         html {
@@ -62,6 +62,7 @@
             margin: 5px 3px;
             -webkit-transition-duration: 0.8s;
             transition-duration: 0.8s;
+            border-radius: 15px;
         }
 
         .button:hover {
@@ -104,16 +105,16 @@
             audio.play();
         }
 
+        
+
         </script>
     </head>
     <body onload="playSound()">
         <div class="blood_splatter">
-            blood splatter div
-        
-        <div class="guess_container">
-            <input id="guess_input" type="number" min="1" max="10">
-            <button class="button">SUBMIT GUESS</button>
+            <div class="guess_container">
+                <input id="guess_input" type="number" min="1" max="10">
+                <button class="button">SUBMIT GUESS</button>
+            </div>
         </div>
-    </div>
     </body>
 </html>
