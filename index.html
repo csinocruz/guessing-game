@@ -2,10 +2,23 @@
 <html>
     <head>
         <title>Guessing Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet">
         <style>
-        body {
+        .blood_splatter {
+            height: -webkit-fill-available;
+            position: relative;
+            background-image: url(/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        html {
             background-image: url(/Users/francescasinocruz/Desktop/LFZ/guess/images/bg_wall.jpg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            background-position: left;
         }
         .button {
             font-family: 'Creepster', cursive;
@@ -15,7 +28,6 @@
             border: 2px solid rgb(198, 0, 0);
             padding: 15px 30px;
             text-align: center;
-            display: inline-block;
             margin: 5px 3px;
             -webkit-transition-duration: 0.8s;
             transition-duration: 0.8s;
@@ -39,15 +51,17 @@
         }
 
         .guess_container {
-            line-height: 50;
-            /* height: 200px; */
-            text-align: center;
+            margin-top: 20%;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-content: center;
+            align-items: center;
         }
 
-        .guess_container input {
-            line-height: 1.5;
-            /* display: block;
-            vertical-align: middle; */
+        .guess_container input, button {
+            align-self: center;
         }
 
         </style>
@@ -62,9 +76,13 @@
         </script>
     </head>
     <body onload="playSound()">
+        <div class="blood_splatter">
+            blood splatter div
+        
         <div class="guess_container">
             <input id="guess_input" type="number" min="1" max="10">
             <button class="button">SUBMIT GUESS</button>
         </div>
+    </div>
     </body>
 </html>
