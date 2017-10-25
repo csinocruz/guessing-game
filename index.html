@@ -52,10 +52,16 @@
 
         </style>
         <script>
+        var audio = new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/creepy-background-daniel_simon.mp3');
         
+        function playSound() {
+            audio.loop = true;
+            audio.play();
+        }
+
         </script>
     </head>
-    <body>
+    <body onload="playSound()">
         <div class="guess_container">
             <input id="guess_input" type="number" min="1" max="10">
             <button class="button">SUBMIT GUESS</button>
