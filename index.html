@@ -27,16 +27,41 @@
             border: 2px solid black;
             box-shadow: 0px 0px 20px 10px rgba(132, 0, 0, 0.53), 0px 0px 20px 0 rgba(255, 0, 0, 0.19);
         }
+
+        input[type=number] {
+            background-color: black;
+            color: red;
+            margin: 10px;
+            padding: 12px 20px;
+            font-size: 65px;
+            border: 2px solid red;
+            text-align: center;
+        }
+
+        .guess_container {
+            line-height: 50;
+            /* height: 200px; */
+            text-align: center;
+        }
+
+        .guess_container input {
+            line-height: 1.5;
+            /* display: block;
+            vertical-align: middle; */
+        }
+
         </style>
         <script>
         
         </script>
     </head>
     <body>
+        <div class="guess_container">
+            <input id="guess_input" type="number" min="1" max="10">
+            <button class="button">SUBMIT GUESS</button>
+        </div>
 
-        Guess a number:
-        <input id="guess_input" type="number" min="1" max="10">
 
-        <button class="button">SUBMIT GUESS</button>
+
     </body>
 </html>
