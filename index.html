@@ -28,14 +28,14 @@
             0%   { opacity:1; }
             50%  { opacity:0; }
             100% { opacity:1; }
-        }
+        } */
         
         .blood_splatter {
             -webkit-animation: flickerAnimation .3s infinite;
             -moz-animation: flickerAnimation .3s infinite;
             -o-animation: flickerAnimation .3s infinite;
             animation: flickerAnimation .3s infinite;
-        } */
+        }
 
         button:focus {
             outline:0;
@@ -121,10 +121,27 @@
 
             var random_number;
             var audio = new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/creepy-background-daniel_simon.mp3');
-        
+            var sounds = [
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/torture_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/scream_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/femalescream_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/angrycat_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/baby_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/catscream_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/childscream_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/church_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/hell_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/murder_sound.mp3'),
+            ];
+
             function playSound() {
                 audio.loop = true;
                 audio.play();
+            }
+
+            function scareNoise() {
+                var scare_index = Math.floor(Math.random() * 10);
+                sounds[scare_index].play();
             }
 
             //takes no params and returns random_number
@@ -134,16 +151,20 @@
 
             //takes no params and returns no values
             function make_guess() {
+                scareNoise();
                 var the_guess = parseInt($('#guess_input').val()); //value of the player's input
                 var message = $('.result_container');
-                    if (the_guess > random_number) {
-                        message.text('The number you\'ve chosen is too high...');
-                    } else if (the_guess < random_number) {
-                        message.text('The number you\'ve chosen is too low...');
-                    } else if (the_guess === random_number) {
-                        message.text('Congratulations... You\'ve made it out this time.');
-                        message.append($('<button>').click(reset_game).addClass('button').text('RESET'));
-                    }
+
+                if (the_guess < 1 || the_guess > 10) {
+                    message.text('Pick a number 1-10, that is... if you want to live...')
+                } else if (the_guess > random_number) {
+                    message.text('The number you\'ve chosen is too high...');
+                } else if (the_guess < random_number) {
+                    message.text('The number you\'ve chosen is too low...');
+                } else if (the_guess === random_number) {
+                    message.text('Congratulations... You\'ve made it out this time.');
+                    message.append($('<button>').click(reset_game).addClass('button').text('RESET'));
+                }
             }
 
             function reset_game() {
