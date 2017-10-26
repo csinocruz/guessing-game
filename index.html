@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Creepster|Sancreek" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <style>
-        /* @keyframes flickerAnimation {
+        @keyframes flickerAnimation {
             0%   { opacity:1; }
             50%  { opacity:0; }
             100% { opacity:1; }
@@ -28,13 +28,13 @@
             0%   { opacity:1; }
             50%  { opacity:0; }
             100% { opacity:1; }
-        } */
+        }
         
         .blood_splatter {
-            -webkit-animation: flickerAnimation .3s infinite;
-            -moz-animation: flickerAnimation .3s infinite;
-            -o-animation: flickerAnimation .3s infinite;
-            animation: flickerAnimation .3s infinite;
+            -webkit-animation: flickerAnimation .3s 5; 
+            -moz-animation: flickerAnimation .3s 5;
+            -o-animation: flickerAnimation .3s 5;
+            animation: flickerAnimation .3s 5;
         }
 
         button:focus {
@@ -94,7 +94,10 @@
             justify-content: center;
             align-content: center;
             align-items: center;
-            padding-top: 20%;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%)
         }
 
         .guess_container input, button {
@@ -119,6 +122,7 @@
                 $('.button').click(make_guess) //add click handler to button
             })
 
+            var range;
             var random_number;
             var audio = new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/creepy-background-daniel_simon.mp3');
             var sounds = [
@@ -155,12 +159,20 @@
                 var the_guess = parseInt($('#guess_input').val()); //value of the player's input
                 var message = $('.result_container');
 
+                //depending on how close the_guess is to the_number, the background will dim
+                //the larger the range, the darker it gets
+                //the smaller the range, the lighter it gets
+                var range = Math.abs(the_guess - random_number);
+                range /= 10;
+                $('.blood_splatter').css('opacity', 'range');
+
                 if (the_guess < 1 || the_guess > 10) {
                     message.text('Pick a number 1-10, that is... if you want to live...')
+                    //display skull image
                 } else if (the_guess > random_number) {
-                    message.text('The number you\'ve chosen is too high...');
+                    message.text('The number you\'ve chosen is too high... try again.');
                 } else if (the_guess < random_number) {
-                    message.text('The number you\'ve chosen is too low...');
+                    message.text('The number you\'ve chosen is too low... try again.');
                 } else if (the_guess === random_number) {
                     message.text('Congratulations... You\'ve made it out this time.');
                     message.append($('<button>').click(reset_game).addClass('button').text('RESET'));
@@ -176,12 +188,12 @@
         </script>
     </head>
     <body>
-        <div class="blood_splatter">
+        <div class="blood_splatter"></div>
             <div class="guess_container">
                 <input id="guess_input" type="number" min="1" max="10">
                 <button class="button">SUBMIT GUESS</button>
                 <div class="result_container">Guess a number... if you dare...</div>
             </div>
-        </div>
+        
     </body>
 </html>
