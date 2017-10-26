@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Creepster|Sancreek" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <style>
-        @keyframes flickerAnimation {
+        /* @keyframes flickerAnimation {
             0%   { opacity:1; }
             50%  { opacity:0; }
             100% { opacity:1; }
@@ -35,7 +35,7 @@
             -moz-animation: flickerAnimation .3s 5;
             -o-animation: flickerAnimation .3s 5;
             animation: flickerAnimation .3s 5;
-        }
+        } */
 
         button:focus {
             outline:0;
@@ -82,9 +82,12 @@
         .blood_splatter {
             height: -webkit-fill-available;
             position: relative;
-            background-image: url(/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png);
-            background-size: cover;
+            /* background-image: url(/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png);
+            background-size: cover; */
             background-repeat: no-repeat;
+            opacity: 0;
+            transition: opacity 2s;
+            -webkit-transition: opacity 2s;
         }
 
         .guess_container {
@@ -164,7 +167,7 @@
                 //the smaller the range, the lighter it gets
                 var range = Math.abs(the_guess - random_number);
                 range /= 10;
-                $('.blood_splatter').css('opacity', 'range');
+                $('img[src="/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png"]').css('opacity', 'range');
 
                 if (the_guess < 1 || the_guess > 10) {
                     message.text('Pick a number 1-10, that is... if you want to live...')
@@ -188,7 +191,7 @@
         </script>
     </head>
     <body>
-        <div class="blood_splatter"></div>
+        <img src="/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png" alt="blood" class="blood_splatter"></img>
             <div class="guess_container">
                 <input id="guess_input" type="number" min="1" max="10">
                 <button class="button">SUBMIT GUESS</button>
