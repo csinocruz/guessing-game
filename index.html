@@ -4,16 +4,9 @@
         <title>Guessing Game</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet">
+        <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <style>
-        .blood_splatter {
-            height: -webkit-fill-available;
-            position: relative;
-            background-image: url(/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png);
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-
-        @keyframes flickerAnimation {
+        /* @keyframes flickerAnimation {
             0%   { opacity:1; }
             50%  { opacity:0; }
             100% { opacity:1; }
@@ -42,21 +35,26 @@
             -moz-animation: flickerAnimation .3s infinite;
             -o-animation: flickerAnimation .3s infinite;
             animation: flickerAnimation .3s infinite;
+        } */
+
+        button:focus {
+            outline:0;
         }
 
         html {
             background-image: url(/Users/francescasinocruz/Desktop/LFZ/guess/images/bg_wall.jpg);
             background-size: cover;
             background-repeat: no-repeat;
-            height: 100vh;
+            /* height: 100vh; */
             background-position: left;
         }
+
         .button {
             font-family: 'Creepster', cursive;
             font-size: 30px;
             background-color: black;
-            color: rgb(198, 0, 0);
-            border: 2px solid rgb(198, 0, 0);
+            color: rgb(225, 0, 0);
+            border: 2px solid rgb(225, 0, 0);
             padding: 15px 30px;
             text-align: center;
             margin: 5px 3px;
@@ -66,10 +64,10 @@
         }
 
         .button:hover {
-            background-color: #820000;
+            background-color: #bf0000;
             color: black;
             border: 2px solid black;
-            box-shadow: 0px 0px 20px 10px rgba(132, 0, 0, 0.53), 0px 0px 20px 0 rgba(255, 0, 0, 0.19);
+            box-shadow: 0px 0px 20px 11px rgba(132, 0, 0, 0.53), 0px 0px 20px 6px rgba(70, 5, 5, 0.94);
         }
 
         input[type=number] {
@@ -82,8 +80,15 @@
             text-align: center;
         }
 
+        .blood_splatter {
+            height: -webkit-fill-available;
+            position: relative;
+            background-image: url(/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
         .guess_container {
-            margin-top: 20%;
             display: flex;
             flex-direction: column;
             flex-wrap: wrap;
@@ -98,18 +103,46 @@
 
         </style>
         <script>
-        var audio = new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/creepy-background-daniel_simon.mp3');
-        
-        function playSound() {
-            audio.loop = true;
-            audio.play();
-        }
+            //on load handler should call pick_number function and assign its
+            //return value to the variable the_number
+            $(document).ready(function() {
+                console.log('document has loaded'),
+                // playSound(),
+                pick_number(),
+                $('.button').click(make_guess) //add click handler to button
+            })
 
+            var random_number;
+            var audio = new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/creepy-background-daniel_simon.mp3');
         
+            function playSound() {
+                console.log('sound is playing');
+                audio.loop = true;
+                audio.play();
+            }
+
+            //takes no params and returns random_number
+            function pick_number() {
+                console.log('pick_number function has been called');
+                random_number = Math.floor(Math.random() * 10)+1;
+            }
+
+            //takes no params and returns no values
+            function make_guess() {
+                console.log('make_guess function has been called');
+                var the_guess = parseInt($('#guess_input').val()); //value of the player's input
+                    if (the_guess > random_number) {
+                        console.log('The number you picked is too high');
+                    } else if (the_guess < random_number) {
+                        console.log('The number you picked is too low');
+                    } else if (the_guess === random_number) {
+                        console.log('You guessed the right number!');
+                    }
+            }
 
         </script>
     </head>
-    <body onload="playSound()">
+    <body>
         <div class="blood_splatter">
             <div class="guess_container">
                 <input id="guess_input" type="number" min="1" max="10">
