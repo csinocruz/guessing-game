@@ -106,6 +106,7 @@
             font-size: 40px;
             padding: 45px;
             text-align: center;
+            text-shadow: 0 0 15px darkred;
         }
 
         </style>
@@ -147,6 +148,7 @@
 
             function reset_game() {
                 pick_number();
+                $('#guess_input').val('');
                 $('.result_container').text('Guess a number... if you dare');
             }
 
