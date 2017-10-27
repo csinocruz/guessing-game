@@ -144,8 +144,7 @@
                 new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/catscream_sound.mp3'),
                 new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/childscream_sound.mp3'),
                 new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/church_sound.mp3'),
-                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/hell_sound.mp3'),
-                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/murder_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/murder_sound.mp3')
             ];
 
             function playSound() {
@@ -154,7 +153,7 @@
             }
 
             function scareNoise() {
-                var scare_index = Math.floor(Math.random() * 10);
+                var scare_index = Math.floor(Math.random() * 9);
                 sounds[scare_index].play();
             }
 
