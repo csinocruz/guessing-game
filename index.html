@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Creepster|Sancreek" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
         <style>
-        /* @keyframes flickerAnimation {
+        @keyframes flickerAnimation {
             0%   { opacity:1; }
             50%  { opacity:0; }
             100% { opacity:1; }
@@ -31,11 +31,11 @@
         }
         
         .blood_splatter {
-            -webkit-animation: flickerAnimation .3s 5; 
-            -moz-animation: flickerAnimation .3s 5;
-            -o-animation: flickerAnimation .3s 5;
-            animation: flickerAnimation .3s 5;
-        } */
+            -webkit-animation: flickerAnimation .3s 6; 
+            -moz-animation: flickerAnimation .3s 6;
+            -o-animation: flickerAnimation .3s 6;
+            animation: flickerAnimation .3s 6;
+        }
 
         button:focus {
             outline:0;
@@ -86,8 +86,8 @@
             background-size: cover; */
             background-repeat: no-repeat;
             opacity: 0;
-            transition: opacity 2s;
-            -webkit-transition: opacity 2s;
+            transition: opacity 1.5s;
+            -webkit-transition: opacity 1.5s;
         }
 
         .guess_container {
@@ -167,7 +167,7 @@
                 //the smaller the range, the lighter it gets
                 var range = Math.abs(the_guess - random_number);
                 range /= 10;
-                $('img[src="/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png"]').css('opacity', 'range');
+                $('img[src="/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png"]').css('opacity', range);
 
                 if (the_guess < 1 || the_guess > 10) {
                     message.text('Pick a number 1-10, that is... if you want to live...')
