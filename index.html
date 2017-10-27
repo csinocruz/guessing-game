@@ -30,11 +30,16 @@
             100% { opacity:1; }
         }
         
-        .blood_splatter {
-            -webkit-animation: flickerAnimation .3s 6; 
-            -moz-animation: flickerAnimation .3s 6;
-            -o-animation: flickerAnimation .3s 6;
-            animation: flickerAnimation .3s 6;
+        .opening_scare {
+            -webkit-animation: flickerAnimation .7s 4; 
+            -moz-animation: flickerAnimation .7s 4;
+            -o-animation: flickerAnimation .7s 4;
+            animation: flickerAnimation .7s 4;
+            opacity: 0;
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
         button:focus {
@@ -71,7 +76,7 @@
             background-color: #bf0000;
             color: black;
             border: 2px solid black;
-            box-shadow: 0px 0px 20px 11px rgba(132, 0, 0, 0.53), 0px 0px 20px 6px rgba(70, 5, 5, 0.94);
+            box-shadow: 0px 0px 20px 11px rgba(132, 0, 0, 0.53), 0px 0px 20px 4px rgba(70, 5, 5, 0.94);
         }
 
         input[type=number] {
@@ -79,10 +84,10 @@
             color: red;
             margin: 10px;
             padding: 12px 20px;
-            font-size: 65px;
+            font-size: 45px;
             border: 2px solid red;
             text-align: center;
-            border-radius: 6px;
+            border-radius: 4px;
         }
 
         .blood_splatter {
@@ -197,6 +202,7 @@
         </script>
     </head>
     <body>
+        <img src="/Users/francescasinocruz/Desktop/LFZ/guess/images/open_scare.png" alt="face" class="opening_scare"></img>
         <img src="/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png" alt="blood" class="blood_splatter"></img>
             <div class="guess_container">
                 <input autocomplete="off" id="guess_input" type="number" min="1" max="10">
