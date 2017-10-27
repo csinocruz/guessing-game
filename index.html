@@ -38,14 +38,19 @@
         }
 
         button:focus {
-            outline:0;
+            outline: 0;
         }
 
-        html {
+        input:focus {
+            outline: 0;
+        }
+
+        body {
             background-image: url(/Users/francescasinocruz/Desktop/LFZ/guess/images/bg_wall.jpg);
             background-size: cover;
             background-repeat: no-repeat;
-            background-position: left;
+            background-position: center;
+            height: 98vh;
         }
 
         .button {
@@ -81,9 +86,10 @@
 
         .blood_splatter {
             height: -webkit-fill-available;
-            position: relative;
-            /* background-image: url(/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png);
-            background-size: cover; */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             background-repeat: no-repeat;
             opacity: 0;
             transition: opacity 1.5s;
@@ -183,7 +189,7 @@
             }
 
             function reset_game() {
-                pick_number();
+               pick_number();
                 $('#guess_input').val('');
                 $('.result_container').text('Guess a number... if you dare');
             }
@@ -193,7 +199,7 @@
     <body>
         <img src="/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png" alt="blood" class="blood_splatter"></img>
             <div class="guess_container">
-                <input id="guess_input" type="number" min="1" max="10">
+                <input autocomplete="off" id="guess_input" type="number" min="1" max="10">
                 <button class="button">SUBMIT GUESS</button>
                 <div class="result_container">Guess a number... if you dare...</div>
             </div>
