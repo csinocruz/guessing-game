@@ -31,10 +31,10 @@
         }
         
         .opening_scare {
-            -webkit-animation: flickerAnimation .7s 4; 
-            -moz-animation: flickerAnimation .7s 4;
-            -o-animation: flickerAnimation .7s 4;
-            animation: flickerAnimation .7s 4;
+            -webkit-animation: flickerAnimation 6s infinite; 
+            -moz-animation: flickerAnimation 6s infinite;
+            -o-animation: flickerAnimation 6s infinite;
+            animation: flickerAnimation 6s infinite;
             opacity: 0;
             position: fixed;
             top: 20%;
@@ -98,8 +98,8 @@
             transform: translate(-50%, -50%);
             background-repeat: no-repeat;
             opacity: 0;
-            transition: opacity 1.5s;
-            -webkit-transition: opacity 1.5s;
+            transition: opacity 1s;
+            -webkit-transition: opacity 1s;
         }
 
         .guess_container {
@@ -129,12 +129,10 @@
 
         </style>
         <script>
-            //on load handler should call pick_number function and assign its
-            //return value to the variable the_number
             $(document).ready(function() {
                 playSound(),
                 pick_number(),
-                $('.button').click(make_guess) //add click handler to button
+                $('.button').click(make_guess) 
             })
 
             var range;
@@ -188,7 +186,7 @@
                 } else if (the_guess < random_number) {
                     message.text('The number you\'ve chosen is too low... try again.');
                 } else if (the_guess === random_number) {
-                    message.text('Congratulations... You\'ve made it out this time.');
+                    $("<br>").appendTo(message.text('Congratulations... You\'ve made it out this time.'));
                     message.append($('<button>').click(reset_game).addClass('button').text('RESET'));
                 }
             }
