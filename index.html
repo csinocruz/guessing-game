@@ -51,7 +51,7 @@
         }
 
         body {
-            background-image: url(/Users/francescasinocruz/Desktop/LFZ/guess/images/bg_wall.jpg);
+            background-image: url(/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/bg_wall.jpg);
             background-size: cover;
             background-repeat: no-repeat;
             background-position: center;
@@ -137,17 +137,17 @@
 
             var range;
             var random_number;
-            var audio = new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/creepy-background-daniel_simon.mp3');
+            var audio = new Audio('/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/creepy-background-daniel_simon.mp3');
             var sounds = [
-                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/torture_sound.mp3'),
-                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/scream_sound.mp3'),
-                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/femalescream_sound.mp3'),
-                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/angrycat_sound.mp3'),
-                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/baby_sound.mp3'),
-                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/catscream_sound.mp3'),
-                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/childscream_sound.mp3'),
-                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/church_sound.mp3'),
-                new Audio('/Users/francescasinocruz/Desktop/LFZ/guess/images/murder_sound.mp3')
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/torture_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/scream_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/femalescream_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/angrycat_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/baby_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/catscream_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/childscream_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/church_sound.mp3'),
+                new Audio('/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/murder_sound.mp3')
             ];
 
             function playSound() {
@@ -176,7 +176,7 @@
                 //the smaller the range, the lighter it gets
                 var range = Math.abs(the_guess - random_number);
                 range /= 10;
-                $('img[src="/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png"]').css('opacity', range);
+                $('img[src="/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/blood_2.png"]').css('opacity', range);
 
                 if (the_guess < 1 || the_guess > 10) {
                     message.text('Pick a number 1-10, that is... if you want to live...')
@@ -200,8 +200,8 @@
         </script>
     </head>
     <body>
-        <img src="/Users/francescasinocruz/Desktop/LFZ/guess/images/open_scare.png" alt="face" class="opening_scare"></img>
-        <img src="/Users/francescasinocruz/Desktop/LFZ/guess/images/blood_2.png" alt="blood" class="blood_splatter"></img>
+        <img src="/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/open_scare.png" alt="face" class="opening_scare"></img>
+        <img src="/Users/francescasinocruz/Desktop/LFZ/guessing-game/images/blood_2.png" alt="blood" class="blood_splatter"></img>
             <div class="guess_container">
                 <input autocomplete="off" id="guess_input" type="number" min="1" max="10">
                 <button class="button">SUBMIT GUESS</button>
